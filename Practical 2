@@ -1,0 +1,24 @@
+Practical 2 20th jan 2026
+CREATE TABLE UNIVERSITY (university_id INT PRIMARY KEY,name VARCHAR(100)NOT NULL);
+INSERT INTO UNIVERSITY (university_id,name) VALUES (1,'Example University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (2,'Another University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (3,'Third University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (4,'Fourth University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (5,'Fifth University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (6,'Sixth University');
+INSERT INTO UNIVERSITY (university_id,name) VALUES (7,'Seventh University');
+
+CREATE TABLE DEPARTMENT(dept_id, INT PRIMARY KEY,name VARCHAR(50)NOT NULL,building VARCHAR(50),budget DECIMAL(12,2),university_id INT,FOREIGN KEY(university_id)REFERENCES UNIVERSITY(university_id));
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+INSERT INTO DEPARTMENT(dept_id,name,building,budget,university_id)VALUES (1,'Computer Science','Taylor',100000,1);
+
+CREATE TABLE TIME_SLOT(time_slot-id VARCHAR2(4) PRIMARY KEY,day CHAR(1),start_time DATE,end_time DATE );
+INSERT INTO TIME_SLOT(time_slot_id,day,start_time,end_time)VALUES('A','M',TO_DATE('09:00','HH24:MI'),TO_DATE('12:30','HH24:MI'));
+
+
+CREATE TABLE CLASSROOM(building VARCHAR(50),room_number VARCHAR(10),capacity INT,PRIMARY KEY(building,room_number));
+INSERT INTO CLASSROOM
