@@ -1,3 +1,4 @@
+#Basic sql database commands
 1.create user d2 identified by sit ;
 (user d2 is created with password sit)
 (d2 user need some permissions for database operations)
@@ -8,3 +9,4 @@
 4. enter username as : d2@d2
 (user d2 is now connecting to database d2)
 5.Exit or Commit
+
