@@ -14,6 +14,7 @@ IMPLEMENTING BASIC SQL COMMANDS
 1.INSERT COMMAND : TO INSERT DATA INTO THE TABLE
 2.UPDATE : TO UPDATE THE COLUMNS (USE SET WITH IT)
 
+
 19th jan codes:
 create table student_info (prn INT PRIMARY KEY, name VARCHAR(50), m1 INT, m2 INT, m3 INT);
 1.select * from tab; (to see no of tables in database)
