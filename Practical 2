@@ -181,3 +181,18 @@ INSERT INTO CLASSROOM (building, room_number, capacity) VALUES ('Turing', 'B12',
 INSERT INTO CLASSROOM (building, room_number, capacity) VALUES ('Turing', '302', 45);
 INSERT INTO CLASSROOM (building, room_number, capacity) VALUES ('Lovelace', '210', 60);
 INSERT INTO CLASSROOM (building, room_number, capacity) VALUES ('Lovelace', '215', 55);
+
+
+Practical 2 questions:
+i. alter table department modify name varchar2(25);
+desc department;
+ii. alter table department modify building varchar2(25);
+desc department;
+iv. desc instructor; 
+desc department; 
+select * from instructor; 
+select * from department; 
+update instructor set salary = salary * 1.1 where dept_id = (select dept_id from department where name = 'Computer Science');
+vii. update instructor set salary = salary * 1.05 where salary < 70000;
+viii. create a new course "CS-001" titled "Weekly Seminar", with 1 credit: select * from course; select * from department; insert into course values ('CS-001','Weekly Seminar',5,1);
+ix. create a section of this course in Fall 2017, with sec_id of 1 and with the location not yet specified: insert into section values(11, 'CS-001', 1, 'fall','2017','taylor','NA','a');
