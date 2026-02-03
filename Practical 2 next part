@@ -33,3 +33,16 @@ UPDATE emp SET mobile_no = '9876543219' WHERE emp_id = 10;
 INSERT INTO emp (emp_id, name , mobile_no) VALUES (emp_sq.NEXTVAL, 'Raj' , '8034678265');
 UPDATE emp SET mobile_no = '9876543221' WHERE emp_id = 1;
 
+to delete the data from table:
+truncate table emp;
+to delete seq :
+drop sequence emp_sq;
+again i want to insert all the updated data
+normally insert all the codes
+
+3rd feb 2026
+add a new column pincode with not null constraints to the above existing table:
+alter table emp add pincode int not null; # error
+firstly null the table thendrop the sequence then insert:
+alter table emp add pincode int not null;
+INSERT INTO emp (emp_id, name , mobile_no,pincode) VALUES (emp_sq.NEXTVAL, 'Raj' , '8034678265','440015');
