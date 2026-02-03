@@ -21,3 +21,6 @@ select * from department where lower(name) like '%sci%';
 g).lengths of name of instructors:
 select length(name) as total_length from instructor;
 
+h).retrieve the names of the isntructors:
+
+
