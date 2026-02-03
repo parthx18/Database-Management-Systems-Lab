@@ -9,5 +9,11 @@ SELECT AVG(i.salary) AS avg_salary FROM instructor i JOIN department d ON i.dept
 b).avg salaries of all depts
 SELECT d.name AS department_name, AVG(i.salary) AS avg_salary FROM instructor i JOIN department d ON i.dept_id = d.dept_id GROUP BY d.name;
 
+c). salary greater than 30k sum
+SELECT SUM(salary) AS total_salary FROM instructor WHERE salary > 30000;
+
+e). find all dept names whose building name include the substring "sci"
+select * from department where lower(name) like '%sci%';
+
 
 
