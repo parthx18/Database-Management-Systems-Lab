@@ -1,7 +1,13 @@
-Join command: 
+Practical 3
+join command: 
 select instructor_id,name from instructor WHERE dept_id = (SELECT dept_id FROM DEPARTMENT WHERE name = 'Computer Science'; #alternative
 select i.instructor_id,i.name,i.salary,d.name from instructor I join Department d on i.dept_id=d.dept_id where d.name='Computer Science';
 
-give average of salaries:
+a).give average of salaries:
 SELECT AVG(i.salary) AS avg_salary FROM instructor i JOIN department d ON i.dept_id = d.dept_id WHERE d.name = 'Computer Science';
+
+b).avg salaries of all depts
+SELECT d.name AS department_name, AVG(i.salary) AS avg_salary FROM instructor i JOIN department d ON i.dept_id = d.dept_id GROUP BY d.name;
+
+
 
