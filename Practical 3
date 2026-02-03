@@ -1,11 +1,4 @@
-3rd feb 2026
-add a new column pincode with not null constraints to the above existing table:
-alter table emp add pincode int not null; # error
-firstly null the table thendrop the sequence then insert:
-alter table emp add pincode int not null;
-INSERT INTO emp (emp_id, name , mobile_no,pincode) VALUES (emp_sq.NEXTVAL, 'Raj' , '8034678265','440015');
-
-join command: 
+Join command: 
 select instructor_id,name from instructor WHERE dept_id = (SELECT dept_id FROM DEPARTMENT WHERE name = 'Computer Science'; #alternative
 select i.instructor_id,i.name,i.salary,d.name from instructor I join Department d on i.dept_id=d.dept_id where d.name='Computer Science';
 
