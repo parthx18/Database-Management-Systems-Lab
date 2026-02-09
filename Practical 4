@@ -1,14 +1,14 @@
 Departments Table
-CREATE TABLE departments (
+CREATE TABLE department_x (
     deptno INT PRIMARY KEY,
     dept_name VARCHAR(50),
     location VARCHAR(50)
 );
 
-INSERT INTO departments (deptno, dept_name, location) VALUES (10, 'ACCOUNTING', 'New York'),
-INSERT INTO departments (deptno, dept_name, location) VALUES (20, 'RESEARCH', 'Dallas'),
-INSERT INTO departments (deptno, dept_name, location) VALUES (30, 'SALES', 'Chicago'),
-INSERT INTO departments (deptno, dept_name, location) VALUES (40, 'OPERATIONS', 'Boston');
+INSERT INTO department_x (deptno, dept_name, location) VALUES (10, 'ACCOUNTING', 'New York');
+INSERT INTO department_x (deptno, dept_name, location) VALUES (20, 'RESEARCH', 'Dallas');
+INSERT INTO department_x (deptno, dept_name, location) VALUES (30, 'SALES', 'Chicago');
+INSERT INTO department_x (deptno, dept_name, location) VALUES (40, 'OPERATIONS', 'Boston');
 
 
 Employee Table
