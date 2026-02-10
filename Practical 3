@@ -81,7 +81,7 @@ select name,dept_id from instructor;
 
 p)Find the names of all instructors whose salary is greater than at least one instructor in the Biology/ department.
 select name,dept_id,salary from instructor;
-select i.name, i.salary ,d.name from instructor i join department d on i.dept_id=d.dept_id where i.salary > (select salary from instructor where dept_id=2);
+select i.name, i.salary ,d.name from instructor i join department d on i.dept_id=d.dept_id where i.salary > any (select salary from instructor where dept_id=2);
 
 
 
