@@ -51,7 +51,6 @@ INSERT INTO emp (emp_no, birth_date, first_name, last_name, gender, hire_date, s
 VALUES (7900, DATE '1972-06-19', 'Bob', 'King', 'M', DATE '1991-08-18', 850.00, 'CLERK', 10, 7839);
 
 1.Display all employee names that starts with "a" and are at least 3 characters in length.
-
-
+SELECT first_name, last_name FROM emp WHERE first_name LIKE 'a%' AND LENGTH(first_name) >= 3;
 
 
