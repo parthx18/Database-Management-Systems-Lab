@@ -68,6 +68,7 @@ SELECT first_name, last_name FROM emp WHERE lower(job) != 'MANAGER';
 5. Display the name of the employee who earns the highest salary.
 SELECT max(salary) as max_sal from emp;
 select first_name, salary from emp where salary=(select max(salary)from emp);
+
 6. Display the employee number and name of the employee working as CLERK and earning the highest salary among CLERKS.
 select emp_no ,first_name, salary from emp where salary = (select max(salary)from emp where lower(job)='clerk');
 
