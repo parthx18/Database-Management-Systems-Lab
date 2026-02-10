@@ -67,6 +67,10 @@ select name,salary,
         end as salary_category
 from instructor;
 
+n)display names of all the instructors concatenated with their department names
+select i.name || '-' || d.name from instructor i join department d on i.dept=d.dept;
+
+o)Retrieve distinct number of instructors rom each department 
 
 
 
