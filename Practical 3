@@ -12,6 +12,13 @@ SELECT d.name AS department_name, AVG(i.salary) AS avg_salary FROM instructor i 
 c). salary greater than 30k sum
 SELECT SUM(salary) AS total_salary FROM instructor WHERE salary > 30000;
 
+d) List the number of students enrolled in each course:
+SELECT C.CourseID, C.Title, COUNT(E.StudentID) AS EnrolledStudents
+FROM Course C
+LEFT JOIN Enrollment E ON C.CourseID = E.CourseID
+GROUP BY C.CourseID, C.Title;
+
+
 e). find all dept names whose building name include the substring "sci"
 select * from department where name like '%Sci%';
 
