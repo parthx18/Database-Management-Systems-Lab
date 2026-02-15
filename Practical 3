@@ -18,7 +18,6 @@ FROM Course C
 LEFT JOIN Enrollment E ON C.CourseID = E.CourseID
 GROUP BY C.CourseID, C.Title;
 
-
 e). find all dept names whose building name include the substring "sci"
 select * from department where name like '%Sci%';
 
@@ -74,14 +73,11 @@ o)Retrieve distinct number of instructors from each department
 derivation from :select * from instructor i join department d on i_dept_id=d.dept_id;
 select count(*)  FROM instructor i join department d on i.dept-id=d.dept_id;
 select count(*) from instructor i join department d on i.dept_id=d.dept_id group by d.name;
-.
-.
-.
+select count(Instructor_id) as inst_each_dept,d.name from instructor i join department d on i.dept_id=d.dept_id group by d.name;
+final ans:
+select count(distinct Instructor_id) as inst_each_dept,d.name from instructor i join department d on i.dept_id=d.dept_id group by d.name;
 select name,dept_id from instructor;
 
 p)Find the names of all instructors whose salary is greater than at least one instructor in the Biology/ department.
 select name,dept_id,salary from instructor;
-select i.name, i.salary ,d.name from instructor i join department d on i.dept_id=d.dept_id where i.salary > any (select salary from instructor where dept_id=2);
-
-
-
+select i.name, i.salary ,d.name from instructor i join department d on i.dept_id=d.dept_id where i.salary > any (select salary from instructor where d.dept_id=2);
