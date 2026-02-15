@@ -53,7 +53,8 @@ VALUES (7900, DATE '1972-06-19', 'Bob', 'King', 'M', DATE '1991-08-18', 850.00, 
 
 
 1.Display all employee names that starts with "a" and are at least 3 characters in length.
-select first_name from emp where first_name like 'A%' and length(first_name) >= 3;
+select first_name from emp where first_name like 'a%' and length(first_name) >= 3;
+select first_name from emp where lower(first_name) like 'a%' and length(first_name) >= 3; 
  
 2.Display departments having Dollas, New York and Chicago locations.
 SELECT dept_name, location FROM departments WHERE location IN ('Dallas', 'New York', 'Chicago');
