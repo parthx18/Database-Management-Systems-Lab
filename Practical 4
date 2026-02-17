@@ -10,7 +10,6 @@ INSERT INTO department_x (deptno, dept_name, location) VALUES (20, 'RESEARCH', '
 INSERT INTO department_x (deptno, dept_name, location) VALUES (30, 'SALES', 'Chicago');
 INSERT INTO department_x (deptno, dept_name, location) VALUES (40, 'OPERATIONS', 'Boston');
 
-
 Employee table 
 CREATE TABLE emp (
     emp_no INT PRIMARY KEY,
