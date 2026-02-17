@@ -21,8 +21,6 @@ CREATE TABLE Projects (
     dept_id INT
 );
 
-
-
 Assignments Table
 CREATE TABLE Assignments (
     emp_id INT,
