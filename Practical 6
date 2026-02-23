@@ -1,14 +1,28 @@
-
-PRACTICAL 6 
-CREATE PROCEDURE hello_world
+CREATE OR REPLACE PROCEDURE hello_world
 AS
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('Hello World');
+    DBMS_OUTPUT.PUT_LINE('Hello World ! Welcome to SIT');
 END;
 /
+
+set serveroutput on;
 execute hello_world;
 exec hello_world;
-set serveroutput on
 
+
+
+
+CREATE OR REPLACE PROCEDURE ADDNumbers
+AS
+    a NUMBER;
+    b NUMBER;
+BEGIN
+    a := 5;
+    b := 10;
+    
+    DBMS_OUTPUT.PUT_LINE('RESULT: ' || (a + b));
+END;
+/
+execute ADDNumbers;
 
 
