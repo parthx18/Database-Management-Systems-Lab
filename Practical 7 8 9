@@ -1,0 +1,116 @@
+------------------------------------------------------------
+1) Sum of First 10 Numbers Using WHILE Loop
+------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SumFirst10Numbers_WhileLoop AS
+    i NUMBER := 1;
+    sum1 NUMBER := 0;
+BEGIN
+    WHILE i <= 10 LOOP
+        sum1 := sum1 + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first 10 numbers using WHILE loop: ' || sum1);
+END;
+/
+
+SET SERVEROUTPUT ON;
+EXEC SumFirst10Numbers_WhileLoop;
+
+-- Output:
+-- Sum of first 10 numbers using WHILE loop: 55
+-- PL/SQL procedure successfully completed.
+
+
+------------------------------------------------------------
+2) Sum of First 10 Even Numbers Using FOR Loop
+------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE SumFirst10EvenNumbers_ForLoop AS
+    sum1 NUMBER := 0;
+BEGIN
+    FOR i IN 1..10 LOOP
+        sum1 := sum1 + (2 * i);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first 10 even numbers using FOR loop: ' || sum1);
+END;
+/
+
+EXEC SumFirst10EvenNumbers_ForLoop;
+
+-- Output:
+-- Sum of first 10 even numbers using FOR loop: 110
+-- PL/SQL procedure successfully completed.
+
+
+------------------------------------------------------------
+3) Student Result – Total, Percentage & Grade
+------------------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE Sub_Avg (
+    cn    IN INT,
+    dbms  IN INT,
+    ifds  IN INT,
+    cmbs  IN INT
+) AS
+    total INT;
+    per   NUMBER(5,2);
+BEGIN
+    total := cn + dbms + ifds + cmbs;
+    per := (total / 400) * 100;
+
+    IF cn < 40 OR dbms < 40 OR ifds < 40 OR cmbs < 40 THEN
+        DBMS_OUTPUT.PUT_LINE('FAIL');
+    ELSE
+        IF per > 75 THEN
+            DBMS_OUTPUT.PUT_LINE('GRADE A');
+        ELSIF per > 65 AND per <= 75 THEN
+            DBMS_OUTPUT.PUT_LINE('GRADE B');
+        ELSIF per > 55 AND per <= 65 THEN
+            DBMS_OUTPUT.PUT_LINE('GRADE C');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('GRADE D');
+        END IF;
+
+        DBMS_OUTPUT.PUT_LINE('PERCENTAGE IS ' || per);
+    END IF;
+END;
+/
+
+EXEC Sub_Avg(80, 70, 75, 85);
+
+-- Output:
+-- GRADE A
+-- PERCENTAGE IS 77.5
+-- PL/SQL procedure successfully completed.
+
+
+------------------------------------------------------------
+4) Table Creation – route_header
+------------------------------------------------------------
+
+CREATE TABLE route_header (
+    route_id NUMBER(5),
+    origin VARCHAR2(20),
+    destination VARCHAR2(20),
+    fare NUMBER(7,2),
+    distance NUMBER(5),
+    capacity NUMBER(3)
+);
+
+------------------------------------------------------------
+5) Data Insertion
+------------------------------------------------------------
+
+INSERT INTO route_header VALUES (102, 'trichy', 'madurai', 33, 450, 56);
+INSERT INTO route_header VALUES (103, 'madurai', 'madras', 30, 250, 50);
+INSERT INTO route_header VALUES (104, 'madurai', 'madras', 40, 270, 50);
+INSERT INTO route_header VALUES (105, 'madurai', 'madras', 25, 200, 50);
+
+------------------------------------------------------------
+6) Display Table Data
+------------------------------------------------------------
+
+SELECT * FROM route_header;
