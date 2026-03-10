@@ -43,7 +43,7 @@ VALUES (10,'Pooja',78,82,80,76,NULL,NULL,NULL);
 
 CREATE A PROCEDURE TO DISPLAY THE CONTENT OF THE TABLE: ST_INFO
 
-create or replace procedure show_st
+create or replace procedure show_st(rno number)
 as
     s_roll st_info.roll%type;
     s_name st_info.name%type;
@@ -52,7 +52,7 @@ as
     s_sub3 st_info.sub3%type;
     s_sub4 st_info.sub4%type;
 begin
-    select roll, name, sub1, sub2, sub3, sub4 into s_roll, s_name, s_sub1, s_sub2, s_sub3, s_sub4 from st_info;
+    select roll, name, sub1, sub2, sub3, sub4 into s_roll, s_name, s_sub1, s_sub2, s_sub3, s_sub4 from st_info where roll=rno;
 
     dbms_output.put_line ('Roll no : ' || s_roll);
     dbms_output.put_line ('Name of the Student : ' || s_name);
@@ -62,3 +62,5 @@ begin
     dbms_output.put_line ('Marks of Sub4 : ' || s_sub4);
 end;
 /
+
+
