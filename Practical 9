@@ -64,3 +64,37 @@ end;
 /
 
 
+CREATE OR REPLACE PROCEDURE calc_total_perc
+AS
+BEGIN
+    UPDATE st_info
+    SET total = sub1 + sub2 + sub3 + sub4,
+        perc  = (sub1 + sub2 + sub3 + sub4) / 4;
+
+    COMMIT;
+END;
+/
+BEGIN
+   calc_total_perc;
+END;
+/
+SELECT * FROM st_info;
+
+
+CREATE OR REPLACE PROCEDURE calc_result
+AS
+BEGIN
+    UPDATE st_info
+    SET result =
+        CASE
+            WHEN perc >= 50 THEN 'PASS'
+            ELSE 'FAIL'
+        END;
+
+    COMMIT;
+END;
+/
+BEGIN
+   calc_result;
+END;
+/
