@@ -1,0 +1,42 @@
+CREATE TABLE st_info (
+    roll NUMBER,
+    name VARCHAR2(30),
+    sub1 NUMBER,
+    sub2 NUMBER,
+    sub3 NUMBER,
+    sub4 NUMBER,
+    total NUMBER,
+    perc NUMBER(5,2),
+    result VARCHAR2(10)
+);
+
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (1,'Amit',75,68,70,80,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (2,'Rahul',60,65,58,72,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (3,'Priya',82,78,85,80,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (4,'Neha',55,60,62,58,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (5,'Rohit',45,50,48,52,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (6,'Anita',90,88,92,85,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (7,'Karan',70,72,68,75,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (8,'Sneha',65,60,67,63,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (9,'Vikas',50,55,60,58,NULL,NULL,NULL);
+
+INSERT INTO st_info (roll, name, sub1, sub2, sub3, sub4, total, perc, result)
+VALUES (10,'Pooja',78,82,80,76,NULL,NULL,NULL);
