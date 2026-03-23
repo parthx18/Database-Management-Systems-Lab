@@ -63,6 +63,18 @@ begin
 end;
 /
 
+SET SERVEROUTPUT ON;
+EXEC show_st(1);
+# OUTPUT:
+# Roll No : 1
+# Name of the student : Amit
+# Marks of Sub1 : 75
+# Marks of Sub2 : 68
+# Marks of Sub3 : 70
+# Marks of Sub4 : 80
+# PL/SQL procedure successfully completed.
+
+
 
 CREATE OR REPLACE PROCEDURE show_st(rno NUMBER) AS
     s_roll st_info.roll%TYPE;
