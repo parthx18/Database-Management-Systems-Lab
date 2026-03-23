@@ -21,3 +21,26 @@ BEGIN
             DBMS_OUTPUT.PUT_LINE('Employee ID is too big!');
 END;
 /
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE exception_procedure(id IN NUMBER)
+AS
+    name      Emp.Empname%TYPE;
+    v_salary  Emp.Salary%TYPE;
+BEGIN
+    SELECT Empname, Salary
+    INTO name, v_salary
+    FROM Emp
+    WHERE Emp_id = id;
+
+    DBMS_OUTPUT.PUT_LINE('Name : ' || name);
+    DBMS_OUTPUT.PUT_LINE('Salary : ' || v_salary);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('ID NOT FOUND');
+END exception_procedure;
+/
