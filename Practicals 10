@@ -1,0 +1,38 @@
+CREATE OR REPLACE PROCEDURE Get_Emp_Details (
+    p_empname IN VARCHAR2
+) AS
+    var1_exception EXCEPTION;
+    var2_exception EXCEPTION;
+    
+    v_name emp.ename%TYPE;
+    v_salary emp.sal%TYPE;
+
+BEGIN
+    SELECT ename, sal 
+    INTO v_name, v_salary 
+    FROM emp 
+    WHERE ename = p_empname;
+
+    IF v_salary < 0 THEN
+        RAISE var1_exception;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('Name: ' || v_name || ' Salary: ' || v_salary);
+
+EXCEPTION
+    WHEN var1_exception THEN
+        DBMS_OUTPUT.PUT_LINE('Error: Salary cannot be negative.');
+        
+    WHEN var2_exception THEN
+        DBMS_OUTPUT.PUT_LINE('Error: Custom condition var2 met.');
+
+    WHEN ZERO_DIVIDE THEN 
+        DBMS_OUTPUT.PUT_LINE('Error: Division by zero encountered.');
+        
+    WHEN NO_DATA_FOUND THEN 
+        DBMS_OUTPUT.PUT_LINE('Error: No employee found with that name.');
+        
+    WHEN OTHERS THEN 
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END Get_Emp_Details;
+/
