@@ -29,6 +29,29 @@ Employee Name : Alice
 Salary : 3000
 
 
+
+CREATE OR REPLACE PROCEDURE Get_dept_id(id IN NUMBER)
+AS
+s_name employees.emp_name%TYPE;
+s_sal  employees.salary%TYPE;
+BEGIN
+SELECT emp_name, salary
+INTO s_name, s_sal
+FROM employees
+WHERE dept_id = n;
+
+DBMS_OUTPUT.PUT_LINE('Employee Name : ' || s_name);
+DBMS_OUTPUT.PUT_LINE('Salary : ' || s_sal);
+
+EXCEPTION
+WHEN max_rows_found THEN
+DBMS_OUTPUT.PUT_LINE('Many Employees found in Department = ' ||n);
+END;
+/
+
+
+
+
 2) Procedure: Validate Marks (0–100)
 CREATE OR REPLACE PROCEDURE check_marks(m NUMBER)
 AS
