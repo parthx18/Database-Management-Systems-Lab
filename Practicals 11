@@ -1,0 +1,37 @@
+# Functions in PL/SQL
+# Function: Calculate Total, Percentage & Division
+CREATE OR REPLACE FUNCTION Function_1(
+marks1 NUMBER,
+marks2 NUMBER,
+marks3 NUMBER
+)
+RETURN NUMBER
+IS
+Total NUMBER;
+Perc  NUMBER;
+BEGIN
+Total := marks1 + marks2 + marks3;
+DBMS_OUTPUT.PUT_LINE('Total : ' || Total);
+Perc := Total / 3;
+DBMS_OUTPUT.PUT_LINE('Percentage : ' || Perc);
+IF Perc > 75 THEN
+DBMS_OUTPUT.PUT_LINE('Distinction Division');
+ELSIF Perc > 60 THEN
+DBMS_OUTPUT.PUT_LINE('First Class Division');
+ELSE
+DBMS_OUTPUT.PUT_LINE('Fail');
+END IF;
+RETURN Perc;
+END Function_1;
+/
+
+# Execute Function
+SET SERVEROUTPUT ON;
+SELECT Function_1(35,55,85) FROM dual;
+
+# OUTPUT:
+FUNCTION_1(35,55,85)
+58.3333333
+Total : 175
+Percentage : 58.33333333333333333333333333333333333333
+# Fail
