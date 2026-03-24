@@ -28,28 +28,29 @@ EXEC Get_Empname(2);
 Employee Name : Alice
 Salary : 3000
 
-
-
 CREATE OR REPLACE PROCEDURE Get_dept_id(id IN NUMBER)
 AS
-s_name employees.emp_name%TYPE;
-s_sal  employees.salary%TYPE;
 BEGIN
-SELECT emp_name, salary
-INTO s_name, s_sal
-FROM employees
-WHERE dept_id = n;
-
-DBMS_OUTPUT.PUT_LINE('Employee Name : ' || s_name);
-DBMS_OUTPUT.PUT_LINE('Salary : ' || s_sal);
-
-EXCEPTION
-WHEN max_rows_found THEN
-DBMS_OUTPUT.PUT_LINE('Many Employees found in Department = ' ||n);
+  FOR rec IN (
+    SELECT emp_name, salary
+    FROM employees
+    WHERE dept_id = id
+  )
+  LOOP
+    DBMS_OUTPUT.PUT_LINE('Employee Name : ' || rec.emp_name);
+    DBMS_OUTPUT.PUT_LINE('Salary : ' || rec.salary);
+  END LOOP;
 END;
 /
-
-
+SET SERVEROUTPUT ON;
+EXEC Get_dept_id(101);
+#OUTPUT
+Employee Name : John
+Salary : 5000
+Employee Name : Robert
+Salary : 4000
+Employee Name : Laura
+Salary : 5200
 
 
 2) Procedure: Validate Marks (0–100)
