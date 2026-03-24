@@ -1,4 +1,4 @@
-#Stored Procedures
+#Exception Handling
 1) Procedure: Get Employee Name and Salary
 CREATE OR REPLACE PROCEDURE Get_Empname(id IN NUMBER)
 AS
