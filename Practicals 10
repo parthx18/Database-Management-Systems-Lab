@@ -23,34 +23,73 @@ END;
 #  Execute Procedure
 SET SERVEROUTPUT ON;
 EXEC Get_Empname(2);
-
 # OUTPUT:
 Employee Name : Alice
 Salary : 3000
 
-CREATE OR REPLACE PROCEDURE Get_dept_id(id IN NUMBER)
+
+
+MAX_ROWS_FOUND:
+CREATE OR REPLACE PROCEDURE GetEmployeeSalary (
+    id IN NUMBER
+)
 AS
+    v_name employees.emp_name%TYPE;
+    v_salary employees.salary%TYPE;
 BEGIN
-  FOR rec IN (
     SELECT emp_name, salary
+    INTO v_name, v_salary
     FROM employees
-    WHERE dept_id = id
-  )
-  LOOP
-    DBMS_OUTPUT.PUT_LINE('Employee Name : ' || rec.emp_name);
-    DBMS_OUTPUT.PUT_LINE('Salary : ' || rec.salary);
-  END LOOP;
+    WHERE emp_id = id;
+
+    DBMS_OUTPUT.PUT_LINE('Name: ' || v_name);
+    DBMS_OUTPUT.PUT_LINE('Salary: ' || v_salary);
+
+EXCEPTION
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('Multiple employees found with same ID');
 END;
 /
+
 SET SERVEROUTPUT ON;
-EXEC Get_dept_id(101);
-#OUTPUT
-Employee Name : John
-Salary : 5000
-Employee Name : Robert
-Salary : 4000
-Employee Name : Laura
-Salary : 5200
+EXEC GetEmployeeSalary(3);
+#output
+Name: Robert
+Salary: 4000
+
+
+
+CREATE OR REPLACE PROCEDURE GetExcep( M1 IN NUMBER, M2 IN NUMBER, M3 IN NUMBER)
+AS
+	INVALID_MARKS EXCEPTION;
+BEGIN 
+	IF M1<0 OR M1>100 OR M2<0 OR M2>100 OR M3<0 OR M3>100 THEN 
+		RAISE INVALID_MARKS;
+	ELSIF M1 >= 50 AND M2 >= 50 AND M3 >= 50 THEN 
+		DBMS_OUTPUT.PUT_LINE('RESULT = PASS');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('RESULT=FAIL');
+	END IF;
+EXCEPTION
+	WHEN INVALID_MARKS THEN 
+		DBMS_OUTPUT.PUT_LINE('ENTER VALID MARKS IN THE RANGE 0-100');
+END;
+/
+
+EXEC GetExcep(80, 90, 75);
+EXEC GetExcep(40, 60, 70);
+EXEC GetExcep(-10, 50, 60);
+
+#output
+SQL> EXEC GetExcep(80, 90, 75);
+RESULT = PASS
+PL/SQL procedure successfully completed.
+SQL> EXEC GetExcep(40, 60, 70);
+RESULT=FAIL
+PL/SQL procedure successfully completed.
+SQL> EXEC GetExcep(-10, 50, 60);
+ENTER VALID MARKS IN THE RANGE 0-100
+PL/SQL procedure successfully completed.
 
 
 2) Procedure: Validate Marks (0–100)
