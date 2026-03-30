@@ -1,0 +1,23 @@
+Practical 13
+#Statement level trigger
+create or replace trigger tri_st
+before update on st_info
+begin
+DBMS_OUTPUT.PUT_LINE('This is statement level trigger fixed');
+end;
+/
+set serveroutput on;
+update st_info set total=sub1+sub2+sub3+sub4;
+
+
+show errors;//for compilation errors
+
+#Row level trigger
+create or replace trigger tri_row 
+before update on st_info for each row
+begin
+DBMS_OUTPUT.PUT_LINE('This is row level trigger fixed');
+end;
+/
+set serveroutput on;
+update st_info set total=sub1+sub2+sub3+sub4 where sub1 >80;
