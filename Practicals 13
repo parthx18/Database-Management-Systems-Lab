@@ -20,3 +20,19 @@ end;
 /
 set serveroutput on;
 update st_info set total=sub1+sub2+sub3+sub4 where sub1 >80;
+
+
+CREATE OR REPLACE TRIGGER tri_ins
+BEFORE INSERT ON st_info
+FOR EACH ROW
+BEGIN
+   IF (:NEW.sub1 < 0 OR :NEW.sub1 > 100) OR
+      (:NEW.sub2 < 0 OR :NEW.sub2 > 100) OR
+      (:NEW.sub3 < 0 OR :NEW.sub3 > 100) OR
+      (:NEW.sub4 < 0 OR :NEW.sub4 > 100) THEN
+      DBMS_OUTPUT.PUT_LINE('This is a row level trigger');
+   END IF;
+END;
+/
+SET SERVEROUTPUT ON;
+INSERT INTO st_info VALUES (1, 120, 85, 90, 95);
