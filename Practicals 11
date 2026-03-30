@@ -1,5 +1,5 @@
 # Functions in PL/SQL
-1.Calculate Total, Percentage & Division
+1 .Calculate Total, Percentage & Division
 CREATE OR REPLACE FUNCTION Function_1(
 marks1 NUMBER,
 marks2 NUMBER,
