@@ -22,5 +22,3 @@ BEGIN
 END; 
 /
 ALTER TABLE emp2 ADD salary NUMBER;
-
-
