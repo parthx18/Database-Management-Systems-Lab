@@ -30,14 +30,20 @@ CREATE OR REPLACE TRIGGER tri_ins
 BEFORE INSERT ON st_info
 FOR EACH ROW
 BEGIN
-   IF (:NEW.sub1 < 0 OR :NEW.sub1 > 100) OR
-      (:NEW.sub2 < 0 OR :NEW.sub2 > 100) OR
-      (:NEW.sub3 < 0 OR :NEW.sub3 > 100) OR
-      (:NEW.sub4 < 0 OR :NEW.sub4 > 100) THEN
-      DBMS_OUTPUT.PUT_LINE('This is a row level trigger');
+   IF (:NEW.sub1 < 0 OR :NEW.sub1 > 100) THEN
+      DBMS_OUTPUT.PUT_LINE('Invalid marks in Subject 1');   
+   ELSIF (:NEW.sub2 < 0 OR :NEW.sub2 > 100) THEN
+      DBMS_OUTPUT.PUT_LINE('Invalid marks in Subject 2');      
+   ELSIF (:NEW.sub3 < 0 OR :NEW.sub3 > 100) THEN
+      DBMS_OUTPUT.PUT_LINE('Invalid marks in Subject 3');      
+   ELSIF (:NEW.sub4 < 0 OR :NEW.sub4 > 100) THEN
+      DBMS_OUTPUT.PUT_LINE('Invalid marks in Subject 4');      
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('All subject marks are valid');
    END IF;
 END;
 /
 SET SERVEROUTPUT ON;
 INSERT INTO st_info (ROLL, NAME, SUB1, SUB2, SUB3, SUB4, TOTAL, PERC, RESULT)
 VALUES (1, 'John', 120, 85, 90, 95, NULL, NULL, NULL);
+#output : Invalid marks in Subject 1
