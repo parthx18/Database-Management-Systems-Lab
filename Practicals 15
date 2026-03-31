@@ -1,5 +1,5 @@
-Q. Design a trigger to stop insertion or updation in the table for the days like sat or sun of any date ( for practice purpose take the day as 'tue')
-SHortcut -> CREATE OR REPLACE TRIGGER no_ins_upd
+# Design a trigger to stop insertion or updation in the table for the days like sat or sun of any date ( for practice purpose take the day as 'tue')
+Shortcut -> CREATE OR REPLACE TRIGGER no_ins_upd
 (AS) declare
     v_day VARCHAR2(10);
 BEGIN
@@ -26,4 +26,4 @@ END;
 /
 INSERT INTO emp2 VALUES (11, 'aaa', 2, 45000);
 #OUTPUT
-ORA-20001: Insertion or Updation is not allowed on Tuesday
+Insertion or Updation is not allowed on Tuesday
