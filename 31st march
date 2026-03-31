@@ -39,7 +39,8 @@ END;
 
 design a trigger to stop insertion or updation in the table for the days like sat or sun of any date(for practice purpose take the day as 'tue')
 create or replace trigger no_ins_upd
-(as) declare  
+before insert or update on emp2 for each row 
+declare  
 v_day varchar2(10);
 begin
 v_day := to_char(sysdate,'dy');
@@ -48,4 +49,6 @@ raise_application_error(-20001,'cant insert or update on the table on '|| v_day)
 end if;
 end;
 /
+
+
 
