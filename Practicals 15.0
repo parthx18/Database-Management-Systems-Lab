@@ -1,0 +1,52 @@
+SOME EXTRA CODES
+
+create or replace procedure to_mnth
+as
+v_month varchar2(10);
+begin
+v_month:=to_char(sysdate, 'mon');
+dbms_output.put_line('the current month is ' || v_month);
+end;
+/
+set serveroutput on
+exec to_mnth;
+output: the current month is mar
+
+
+create or replace procedure to_mnth
+as
+v_month varchar2(10);
+begin
+v_month:=upper(to_char(sysdate, 'month'));
+dbms_output.put_line('the current month is ' || v_month);
+end;
+/
+set serveroutput on
+exec to_mnth;
+output: the current month is MARCH
+
+
+create or replace procedure to_mnth
+as
+v_month varchar2(10);
+begin
+v_month:=upper(to_char(sysdate, 'day'));
+dbms_output.put_line('the current day is ' || v_month);
+end;
+/
+set serveroutput on
+exec to_mnth;
+output: the current day is TUESDAY
+
+
+create or replace procedure to_mnth
+as
+v_month varchar2(10);
+begin
+v_month:=upper(to_char(sysdate, 'dy'));
+dbms_output.put_line('the current day is ' || v_month);
+end;
+/
+set serveroutput on
+exec to_mnth;
+output: the current day is TUE
