@@ -1,8 +1,8 @@
-1. create a table emp2 with fields empno as int ,name as character ,category as int (take only 3 categories ie 1,2 and 3)
-2. design a trigger for insertion or updation a new record in capital letters only
+1. Create a table emp2 with fields empno as int ,name as character ,category as int (take only 3 categories ie 1,2 and 3)
+2. Design a trigger for insertion or updation a new record in capital letters only
 hint : name =upper(name);
-3. add another filed salary as number to the table.
-4. design a trigger for insertion or updation for the following:
+3. Add another filed salary as number to the table.
+4. Design a trigger for insertion or updation for the following:
 if category is 1 then salary should be more than 10000
 if category is 2 then salary should be more than 20000
 if category is 3 then salary should be more than 30000
