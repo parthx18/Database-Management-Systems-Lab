@@ -4,7 +4,7 @@ select * from Emp2;
 select * from Emp2_And;
 desc Emp2;
 desc Emp2_And;
-ALTER TABLE Emp2
+ALTER TABLE Emp2_And
 ADD (
     New_Sal NUMBER(10,2),
     Date_of_audit DATE
