@@ -14,6 +14,6 @@ AFTER UPDATE OF SALARY ON EMP2
 FOR EACH ROW
 BEGIN
 INSERT INTO EMP2_AND (Empno,Name,Category,Salary,New_Sal,Date_of_audit)values
-(Empno,Name,Category,:Old.Salary,:New.Salary,Sysdate);
+(:Old.Empno,:Old.Name,:Old.Category,:Old.Salary,:New.Salary,Sysdate);
 End;
 /
