@@ -13,7 +13,7 @@ CREATE OR REPLACE TRIGGER EMP2_AND_TRI
 AFTER UPDATE OF SALARY ON EMP2
 FOR EACH ROW
 BEGIN
-INSERT INTO EMP2_AND (Empno,name,Category,Salary,New_Sal,Date_of_audit)values
-(Empno,Name,category,:Old.salary,:New.salary,Sysdate);
+INSERT INTO EMP2_AND (Empno,Name,Category,Salary,New_Sal,Date_of_audit)values
+(Empno,Name,Category,:Old.Salary,:New.Salary,Sysdate);
 End;
 /
