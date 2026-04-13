@@ -17,3 +17,10 @@ INSERT INTO EMP2_AND (Empno,Name,Category,Salary,New_Sal,Date_of_audit)values
 (:Old.Empno,:Old.Name,:Old.Category,:Old.Salary,:New.Salary,Sysdate);
 End;
 /
+
+    DBMS_OUTPUT.PUT_LINE('Empno        : ' || :OLD.Empno);
+    DBMS_OUTPUT.PUT_LINE('Name         : ' || :OLD.Name);
+    DBMS_OUTPUT.PUT_LINE('Category     : ' || :OLD.Category);
+    DBMS_OUTPUT.PUT_LINE('Old Salary   : ' || :OLD.Salary);
+    DBMS_OUTPUT.PUT_LINE('New Salary   : ' || :NEW.Salary);
+    DBMS_OUTPUT.PUT_LINE('Audit Date   : ' || SYSDATE);
